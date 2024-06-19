@@ -1,0 +1,17 @@
+services:
+  next:
+    build: "./frontend"
+    ports:
+      - 3000:3000
+  backend:
+    build: "./backend"
+    ports:
+      - 8080:8080
+    env_file: "backend.env"
+  database:
+    image: mysql
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    env_file: "db.env"
